@@ -7,7 +7,8 @@ namespace ApiAluno.Models.Curso
     {
         public int Id { get; set; }
         public string? NomeCurso { get; set; }
-        public AlunoModel IdAluno { get; set; }
+        public int AlunoID { get; set; }
+        public  AlunoModel? Aluno { get; set; }
         public DuracaoCursoEnum Duracao { get; set; }
 
 

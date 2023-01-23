@@ -1,3 +1,7 @@
+using ApiAluno.Data;
+using ApiAluno.Repository.AlunoRepository;
+using Microsoft.EntityFrameworkCore;
+
 namespace ApiAluno
 {
     public class Program
@@ -5,6 +9,14 @@ namespace ApiAluno
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+
+            builder.Services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>
+        (
+  options => options.UseSqlServer(builder.Configuration.GetConnectionString("Database"))
+        );
+
+            builder.Services.AddScoped<InterfaceAlunoRepository, AlunoRepository>();
 
             // Add services to the container.
 

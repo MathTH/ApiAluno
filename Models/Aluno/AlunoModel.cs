@@ -9,7 +9,10 @@ namespace ApiAluno.Models.Aluno
         public string? SobreNome { get; set; }
         public string? Email { get; set; }
         public int Idade { get; set; }
-        public CursoModel Cursando { get; set; }
+        public int CursoId { get; set; }
+        public CursoModel? Curso { get; set; }
+        public DateTime? IniciadoEm { get; set; }   
+        public DateTime? DeterminadoEm { get; set; }
 
     }
 }
