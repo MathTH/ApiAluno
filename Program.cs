@@ -1,5 +1,6 @@
 using ApiAluno.Data;
 using ApiAluno.Repository.AlunoRepository;
+using ApiAluno.Repository.CursoRepository;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiAluno
@@ -17,6 +18,7 @@ namespace ApiAluno
         );
 
             builder.Services.AddScoped<InterfaceAlunoRepository, AlunoRepository>();
+            builder.Services.AddScoped<InterfaceCursoRepository, CursoRepository>();
 
             // Add services to the container.
 

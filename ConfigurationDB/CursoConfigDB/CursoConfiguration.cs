@@ -9,9 +9,10 @@ namespace ApiAluno.ConfigurationDB.CursoConfigDB
         public void Configure(EntityTypeBuilder<CursoModel> builder)
         {
             builder.ToTable("Cursos");
-            builder.HasKey(c => c.Id);      
+            builder.HasKey(c => c.Id);
+            //builder.WithMany(c => c.CursoModel);
             builder.Property(c => c.NomeCurso).HasColumnType("VARCHAR(150)").HasColumnName("NomeDoCurso").IsRequired();
-            builder.Property(c => c.AlunoID).IsRequired();
+            builder.Property(c => c.AlunoId).IsRequired();
             builder.Property(c => c.Duracao).IsRequired();
         }
     }
