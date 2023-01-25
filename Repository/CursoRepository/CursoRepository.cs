@@ -1,6 +1,7 @@
 ﻿using ApiAluno.Data;
 using ApiAluno.Models.Curso;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace ApiAluno.Repository.CursoRepository
 {
@@ -34,15 +35,38 @@ namespace ApiAluno.Repository.CursoRepository
 
         public async Task<bool> ApagarCurso(int id)
         {
-            CursoModel curso = await BuscarCursoPorId(id);
-            if(curso == null)
+            try
             {
-                throw new Exception($"ID:{id} não encontrado");
-            }
-             _bancoContext.Curso.Remove(curso);
-            await _bancoContext.SaveChangesAsync();
+                CursoModel curso = await BuscarCursoPorId(id);
 
-            return true;
+                if(curso == null)
+                {
+                    throw new Exception($"ID: {id} não encontrado");
+                }
+                else
+                {
+                    _bancoContext.Curso.Remove(curso);
+                    await _bancoContext.SaveChangesAsync();
+                    Debug.WriteLine("Curso removido");
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw new Exception($"Erro na hora de apagar o curso, ID inválido. ");
+            }
+
+
+            //CursoModel curso = await BuscarCursoPorId(id);
+            //if(curso == null)
+            //{
+            //    throw new Exception($"ID:{id} não encontrado");
+            //}
+            // _bancoContext.Curso.Remove(curso);
+            //await _bancoContext.SaveChangesAsync();
+
+            //return true;
         }
 
 

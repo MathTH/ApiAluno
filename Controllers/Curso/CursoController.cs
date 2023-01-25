@@ -24,9 +24,24 @@ namespace ApiAluno.Controllers.Curso
         }
         
         [HttpGet]
-        public async Task<ActionResult<List<CursoModel>>> BuscarTodosCurso(int id)
+        public async Task<ActionResult<List<CursoModel>>> BuscarTodosCurso()
         {
-            return Ok();
+            List<CursoModel> curso = await _interfaceCursoRepository.BuscarTodosCurso();
+            return Ok (curso);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<CursoModel>> BuscarCursoPorID(int id)
+        {
+            CursoModel curso = await _interfaceCursoRepository.BuscarCursoPorId(id);
+            return Ok (curso);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<CursoModel>> DeletarCurso(int id)
+        {
+            bool apagarCurso = await _interfaceCursoRepository.ApagarCurso(id);
+            return Ok(apagarCurso);
         }
     }
 }
