@@ -1,7 +1,9 @@
 # ApiAluno
 
-#Criando uma API de teste, para eu possa melhorar meus entendimentos em API
+#Criando uma API, para realizar o cadastro de alunos e cursos.
+#Podendo listar todos os alunos e cursos, cadastrados no banco de dados.
+#Buscar um aluno ou curso pelo ID do mesmo.
+#Deletar um cadastro de aluno e curso do banco de dados
 
-#Essa API, está sendo criada para que futuramente eu posso utilizala em meu site institucional.
 
-#Atualizações em breve.
+
